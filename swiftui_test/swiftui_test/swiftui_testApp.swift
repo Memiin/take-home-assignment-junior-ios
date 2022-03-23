@@ -6,12 +6,17 @@
 //
 
 import SwiftUI
+import URLImage
+import URLImageStore
+
 
 @main
 struct swiftui_testApp: App {
     var body: some Scene {
+        let urlImageService = URLImageService(fileStore: nil, inMemoryStore: URLImageInMemoryStore())
+
         WindowGroup {
-            ContentView()
+            ContentView().environment(\.urlImageService, urlImageService)
         }
     }
 }
