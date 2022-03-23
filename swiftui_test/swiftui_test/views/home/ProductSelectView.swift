@@ -12,39 +12,17 @@ struct ProductSelectView: View {
     let gridColumnTemplate: [GridItem] = [GridItem(.flexible(), spacing: 5)]
     
     var body: some View {
-        //ZStack {
-            
-            ScrollView{
-                LazyVGrid(columns: gridColumnTemplate){
-                    ForEach(cartViewModel.products){ product in
-                        ProductItemView(product: product, inCart: self.cartViewModel.isProductInCart(product.id))
-                            .onTapGesture {
-                                                cartViewModel.updateProductList(product)
-                            
-                                            }.id(UUID())
-                    }
+        ScrollView{
+            LazyVGrid(columns: gridColumnTemplate, spacing: 20){
+                ForEach(cartViewModel.products){ product in
+                    ProductItemView(product: product, inCart: self.cartViewModel.isProductInCart(product.id))
+                        .onTapGesture {
+                            cartViewModel.updateProductList(product)
+                        }
+                        .id(UUID())
+                        .padding()
                 }
-                
-            
-//            List (cartViewModel.products) { product in
-//
-//                Section { ProductItemView(product: product, inCart: self.cartViewModel.isProductInCart(product.id)).padding()
-////                        .listRowInsets(EdgeInsets(
-////                    top: 0,
-////                    leading: 0,
-////                    bottom: 0,
-////                    trailing: 0)).padding().background(.thickMaterial)
-//
-//                }
-//                .onTapGesture {
-//                    cartViewModel.updateProductList(product)
-//
-//                }
-//                .id(UUID())
-           // }.listStyle(.insetGrouped)
-            //.listStyle(.plain)
+            }
         }.navigationTitle("productSelectTitle")
-}
-
-
+    }
 }

@@ -15,25 +15,23 @@ struct ProductItemView: View {
     
     var body: some View {
         VStack {
-            ZStack {
             Text(product.name)
                 .font(.title)
                 .foregroundColor(.accentColor)
+                .padding()
             
-        
-            }
-            HStack{
-            URLImage(URL(string: product.image_url)!) { image in
-                image
-                    .resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(maxWidth: .infinity)
-                    .frame(height: 300)
+            HStack {
+                URLImage(URL(string: product.image_url)!) { image in
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(maxWidth: .infinity)
+                        .frame(height: 300)
                     
-            }.contentShape(Rectangle())
+                }.contentShape(Rectangle())
             }
             
-            HStack{
+            HStack {
                 Text("description")
                     .font(.title2)
                 
@@ -43,36 +41,42 @@ struct ProductItemView: View {
             }
             .contentShape(Rectangle())
             .onTapGesture {
-                //withAnimation(.easeOut){
-                    self.showDescription.toggle()
-               // }
-       
+                self.showDescription.toggle()
+                
             }
             
-                Text(product.description)
+            Text(product.description)
                 .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: showDescription ? .none : 0)
                 .clipped()
                 .animation(.easeOut)
                 .transition(.slide)
             
-            HStack {
-                
-            Text("price")
-            Spacer()
-                Text("$\(product.retail_price)")
-            }.font(.title2)
-            
-            if(inCart) {
-            HStack {
-                Spacer()
-              
-                Image(systemName: "cart")
-                    .font(.title2)
-                    .foregroundColor(.accentColor)
+            VStack{
+                HStack {
+                    Text("price")
                     
+                    Spacer()
+                    
+                    Text("$\(product.retail_price)")
                 }
-            }
+                .font(.title2)
+                
+                if(inCart) {
+                    HStack {
+                        Spacer()
+                        
+                        Text("inCart")
+                            .foregroundColor(.red)
+                        
+                        Image(systemName: "cart")
+                            .foregroundColor(.accentColor)
+                    }
+                    .font(.title3).padding(.top, 5)
+                }
+            }.padding()
         }
+        .background(Color(.systemGray5))
+        .cornerRadius(25)
     }
 }
 

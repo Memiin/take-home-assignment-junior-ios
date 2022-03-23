@@ -13,38 +13,40 @@ struct CartView: View {
     var body: some View {
         ZStack{
             NavigationLink(destination: ProductSelectView(cartViewModel: self.cartViewModel),
-                           isActive: $searchView) {
-                
+                           isActive: $searchView) {}
+            
+            VStack {
+                List() {
+                    ForEach(self.$cartViewModel.cart){ $cartItem in
+                        CartItemView(cartItem: $cartItem)//
+                            .listRowBackground(Color(.systemGray5))
+                            .id(UUID())
+                    }
+                }
+                Spacer()
+                HStack{
+                    Text("total")
+                    Spacer()
+                    Text("$\(self.cartViewModel.total)")
+                }
+                .padding()
+                .font(.title2)
+            }
+            .onChange(of: self.cartViewModel.cart) { newValue in
+                self.cartViewModel.removeProduct()
             }
             
-            
-            ScrollView {
-            
-        
-        }
         }.navigationTitle("cartTitle")
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
-                         
+                    
                     Button(action: {
                         self.searchView.toggle()
                     }) {
                         Image(systemName: "plus.circle")
                             .foregroundColor(.blue)
                     }
-                       
-                
                 }
-                   }
-        .task {
-                await cartViewModel.getProducts()
             }
-        
-    }
-}
-
-struct CartView_Previews: PreviewProvider {
-    static var previews: some View {
-        CartView()
     }
 }

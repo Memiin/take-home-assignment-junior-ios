@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ProductModel: Identifiable  {
+struct ProductModel: Identifiable, Hashable  {
     let barcode: String
     let description: String
     let id: String
@@ -28,20 +28,7 @@ struct ProductModel: Identifiable  {
     
     static func getProducts() async throws -> [ProductModel] {
         
-//        do {
-//            let productJSON =
-           return  try await ApiService.shared.products.getProducts()
-//            print(productJSON)
-//
-//        }
-//        catch{
-//            print(error)
-//        }
-//
-//
-//
-//        return []
-//    }
+        return  try await ApiService.shared.products.getProducts()
     }
     
 }

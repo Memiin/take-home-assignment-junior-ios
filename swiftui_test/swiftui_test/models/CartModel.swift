@@ -7,14 +7,7 @@
 
 import Foundation
 
-
-struct CartModel: Identifiable {
-    let id = UUID()
-    var products: [CartItemModel] = []
-    
-}
-
-struct CartItemModel: Identifiable {
+struct CartItemModel: Identifiable, Hashable {
     let id = UUID()
     let product: ProductModel
     var quantity: Int

@@ -23,6 +23,7 @@
 		27A72B3627EABF2C003E88F3 /* CartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27A72B3527EABF2C003E88F3 /* CartModel.swift */; };
 		27A72B3C27EAC3DC003E88F3 /* URLImage in Frameworks */ = {isa = PBXBuildFile; productRef = 27A72B3B27EAC3DC003E88F3 /* URLImage */; };
 		27A72B3E27EAC3DC003E88F3 /* URLImageStore in Frameworks */ = {isa = PBXBuildFile; productRef = 27A72B3D27EAC3DC003E88F3 /* URLImageStore */; };
+		27C5D71627EAD154003BE48F /* CartItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C5D71527EAD154003BE48F /* CartItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		27A72B3127EABD8A003E88F3 /* ProductSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductSelectView.swift; sourceTree = "<group>"; };
 		27A72B3327EABE85003E88F3 /* ProductItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductItemView.swift; sourceTree = "<group>"; };
 		27A72B3527EABF2C003E88F3 /* CartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartModel.swift; sourceTree = "<group>"; };
+		27C5D71527EAD154003BE48F /* CartItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				27A72B2027EAA6F0003E88F3 /* CartView.swift */,
+				27C5D71527EAD154003BE48F /* CartItemView.swift */,
 				27A72B3127EABD8A003E88F3 /* ProductSelectView.swift */,
 				27A72B3327EABE85003E88F3 /* ProductItemView.swift */,
 			);
@@ -236,6 +239,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27C5D71627EAD154003BE48F /* CartItemView.swift in Sources */,
 				27A72B3427EABE85003E88F3 /* ProductItemView.swift in Sources */,
 				27A72B2127EAA6F0003E88F3 /* CartView.swift in Sources */,
 				27A72B2727EAA85E003E88F3 /* ApiService.swift in Sources */,

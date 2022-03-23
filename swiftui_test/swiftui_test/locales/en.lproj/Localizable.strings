@@ -2,3 +2,7 @@
 "description" = "Description";
 "price" = "Retail Price";
 "productSelectTitle" = "Products";
+"confirm" = "Confirmation";
+"removeMessage" = "Would you like to remove this?";
+"total" = "Total";
+"inCart" = "Item in Cart";
